@@ -70,6 +70,8 @@ export default function Home() {
             <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/parenting">Parenting</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/pohon-impian">Pohon Impian</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/buletin">Buletin</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/paguyuban">Paguyuban</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/ppdb-faq">FAQ PPDB</Link>
