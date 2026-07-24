@@ -1,38 +1,55 @@
+import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { ReactNode } from 'react'
+import { Container } from '@/components/ui/Container'
 
-interface SectionProps {
-  children: ReactNode
-  className?: string
-  id?: string
-  background?: 'white' | 'neutral' | 'primary' | 'gradient'
-  padding?: 'sm' | 'md' | 'lg' | 'xl'
+export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+  container?: boolean
+  background?: 'white' | 'neutral' | 'primary' | 'secondary' | 'accent' | 'transparent' | 'gradient'
+  padding?: 'sm' | 'md' | 'lg' | 'xl' | 'none'
 }
 
-export function Section({
-  children,
-  className,
-  id,
-  background = 'white',
-  padding = 'lg',
-}: SectionProps) {
-  const backgroundClasses = {
-    white: 'bg-white',
-    neutral: 'bg-neutral-50',
-    primary: 'bg-primary text-white',
-    gradient: 'bg-gradient-to-br from-primary via-primary-dark to-primary',
-  }
+const Section = React.forwardRef<HTMLElement, SectionProps>(
+  ({ className, container = true, background = 'white', padding = 'lg', children, ...props }, ref) => {
+    const bgClasses = {
+      white: 'bg-white',
+      neutral: 'bg-neutral-50',
+      primary: 'bg-primary text-primary-foreground',
+      secondary: 'bg-secondary text-secondary-foreground',
+      accent: 'bg-accent text-accent-foreground',
+      transparent: 'bg-transparent',
+      gradient: 'bg-gradient-to-br from-primary via-primary-dark to-primary/80 text-white',
+    }
 
-  const paddingClasses = {
-    sm: 'py-8',
-    md: 'py-12',
-    lg: 'py-16',
-    xl: 'py-24',
-  }
+    const paddingClasses = {
+      sm: 'py-8 md:py-12',
+      md: 'py-12 md:py-16',
+      lg: 'py-16 md:py-24',
+      xl: 'py-24 md:py-32',
+      none: 'py-0',
+    }
 
-  return (
-    <section id={id} className={cn(backgroundClasses[background], paddingClasses[padding], className)}>
-      {children}
-    </section>
-  )
-}
+    const content = container ? (
+      <Container>{children}</Container>
+    ) : (
+      children
+    )
+
+    return (
+      <section
+        ref={ref}
+        className={cn(
+          'w-full',
+          bgClasses[background],
+          paddingClasses[padding],
+          className
+        )}
+        {...props}
+      >
+        {content}
+      </section>
+    )
+  }
+)
+Section.displayName = 'Section'
+
+export { Section }
