@@ -1,58 +1,154 @@
 @import "tailwindcss";
 
+/* Custom theme variables */
+@theme {
+  --color-primary: #0B2B4A;
+  --color-secondary: #1A4A6E;
+  --color-accent: #C9A84C;
+  --color-accent-light: #E8D5A3;
+  --color-surface: #F8F9FA;
+  --color-glass: rgba(255, 255, 255, 0.65);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-gradient-to-br from-gray-50 via-white to-blue-50/30 text-gray-800 min-h-screen;
+    background: linear-gradient(145deg, #F4F6F9 0%, #FFFFFF 100%);
+    color: #1A1A2E;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
-    @apply font-bold;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
+  /* Glassmorphism elegan */
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(11, 43, 74, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+    border-radius: 24px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
+  .glass-card:hover {
+    box-shadow: 0 16px 48px rgba(11, 43, 74, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Hero gradient modern */
   .gradient-hero {
-    @apply bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900;
+    background: linear-gradient(135deg, #0B2B4A 0%, #1A4A6E 40%, #2C6F94 100%);
   }
+  .gradient-hero .shine {
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  }
+
+  /* Tombol premium */
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    background: linear-gradient(135deg, #0B2B4A, #1A4A6E);
+    color: white;
+    font-weight: 600;
+    padding: 0.875rem 2.25rem;
+    border-radius: 60px;
+    box-shadow: 0 4px 14px rgba(11, 43, 74, 0.25);
+    transition: all 0.3s ease;
+    border: none;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
   }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(11, 43, 74, 0.35);
+  }
+  .btn-primary:hover::after {
+    opacity: 1;
+  }
+
   .btn-secondary {
-    @apply bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-full border border-white/30 transition-all duration-300 hover:scale-105;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-weight: 500;
+    padding: 0.875rem 2.25rem;
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
   }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Card hover lebih smooth */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(11, 43, 74, 0.10);
+  }
+
+  /* Section title modern */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-12;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 3rem;
   }
   .section-title span {
-    @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #C9A84C, #D4B85A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Layout card grid */
+  .card-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+  .animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
   .delay-100 { animation-delay: 0.1s; }
   .delay-200 { animation-delay: 0.2s; }
   .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes slideUp {
+@keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

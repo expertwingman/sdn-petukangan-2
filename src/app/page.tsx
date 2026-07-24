@@ -42,19 +42,24 @@ export default function HomePage() {
       <JsonLd data={schoolSchema} />
 
       {/* Hero */}
-      <div className="relative gradient-hero text-white min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMCA0MCAyMCAyMCAwIDAgMSAwLTQweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')] bg-repeat"></div>
-        <div className="max-w-4xl text-center px-4 relative z-10 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+      <div className="relative min-h-[85vh] gradient-hero flex items-center justify-center overflow-hidden pt-16">
+        <div className="absolute inset-0 shine pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03] pointer-events-none"></div>
+        <div className="max-w-5xl text-center px-4 relative z-10 animate-fade-in-up">
+          <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 text-sm text-white/80 border border-white/10 mb-6">
+            ✦ Sekolah Ramah Anak & Akreditasi A
+          </div>
+          <h1 className="text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             Membentuk Karakter, <br />
-            <span className="text-yellow-300">Merancang Masa Depan</span>
+            <span className="text-accent-light">Merancang Masa Depan</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            SDN Petukangan Selatan 02 – Sekolah Dasar Negeri Akreditasi A &amp; Sekolah Ramah Anak
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+            SDN Petukangan Selatan 02 – Sekolah Dasar Negeri terakreditasi A di Jakarta Selatan
+            dengan pendekatan pendidikan inklusif dan berbasis karakter.
           </p>
-          <p className="text-lg text-blue-200 max-w-3xl mx-auto mb-10">
-            Berlokasi di Pesanggrahan, Jakarta Selatan, kami menyediakan pendidikan berkualitas dengan
-            fasilitas digital, lingkungan inklusif, dan tenaga pendidik profesional.
+          <p className="text-md text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Fasilitas digital, lingkungan ramah anak, dan tenaga pendidik profesional siap
+            mengantarkan putra-putri Anda menuju masa depan gemilang.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/ppdb" className="btn-primary">
@@ -65,21 +70,22 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/5 to-transparent pointer-events-none"></div>
       </div>
 
-      {/* Keunggulan */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      {/* Keunggulan dengan kartu modern */}
+      <div className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="section-title">Keunggulan <span>Kami</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { title: 'Akreditasi A', desc: 'Terakreditasi Unggul dari BAN-S/M', icon: '🏆', delay: 'delay-100' },
-            { title: 'Sekolah Ramah Anak', desc: 'Lingkungan aman dan nyaman untuk belajar', icon: '🌱', delay: 'delay-200' },
-            { title: 'Fasilitas Digital', desc: 'Lab komputer, perpustakaan digital, dan internet cepat', icon: '💻', delay: 'delay-300' },
-          ].map((item, i) => (
-            <div key={i} className={`glass-card p-8 text-center card-hover animate-slide-up ${item.delay}`}>
+            { title: 'Akreditasi A', desc: 'Terakreditasi Unggul dari BAN-S/M dengan standar nasional pendidikan.', icon: '🏆', delay: '100' },
+            { title: 'Sekolah Ramah Anak', desc: 'Lingkungan belajar yang aman, nyaman, dan mendukung tumbuh kembang optimal.', icon: '🌱', delay: '200' },
+            { title: 'Fasilitas Digital', desc: 'Lab komputer, perpustakaan digital, akses internet cepat, dan ruang kelas interaktif.', icon: '💻', delay: '300' },
+          ].map((item) => (
+            <div key={item.title} className={`glass-card p-8 text-center card-hover animate-fade-in-up delay-${item.delay}`}>
               <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+              <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

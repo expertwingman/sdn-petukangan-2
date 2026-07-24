@@ -39,12 +39,12 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300">
+    <nav className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-extrabold tracking-tight text-primary">
-              SDN Petukangan <span className="text-accent">02</span>
+            <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
+              SDN Petukangan 02
             </Link>
           </div>
 
@@ -53,26 +53,26 @@ const Navbar = () => {
               if (item.submenu) {
                 return (
                   <Menu as="div" key={item.label} className="relative">
-                    <Menu.Button className="flex items-center px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white/60 transition-all duration-200">
+                    <Menu.Button className="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50/70 transition-all duration-200">
                       {item.label}
                       <ChevronDownIcon className="ml-1 h-4 w-4" />
                     </Menu.Button>
                     <Transition
                       as={Fragment}
-                      enter="transition ease-out duration-150"
+                      enter="transition ease-out duration-100"
                       enterFrom="transform opacity-0 scale-95"
                       enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-100"
+                      leave="transition ease-in duration-75"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute left-0 mt-2 w-56 origin-top-left bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 py-2 z-50">
+                      <Menu.Items className="absolute left-0 mt-2 w-56 origin-top-left bg-white rounded-xl shadow-lg ring-1 ring-black/5 focus:outline-none py-1 z-50">
                         {item.submenu.map((sub) => (
                           <Menu.Item key={sub.label}>
                             {({ active }) => (
                               <Link
                                 href={sub.href}
-                                className={`block px-4 py-2.5 text-sm ${active ? 'bg-primary/5 text-primary' : 'text-gray-700'} transition`}
+                                className={`block px-4 py-2 text-sm ${active ? 'bg-blue-50 text-blue-700' : 'text-gray-700'} transition`}
                               >
                                 {sub.label}
                               </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-primary hover:bg-white/60 transition-all duration-200"
+                  className="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50/70 transition-all duration-200"
                 >
                   {item.label}
                 </Link>
@@ -99,8 +99,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-gray-600 hover:bg-white/60 transition"
-              aria-expanded={mobileMenuOpen}
+              className="p-2 rounded-lg text-gray-600 hover:text-blue-700 hover:bg-blue-50/70 transition"
             >
               {mobileMenuOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -113,17 +112,17 @@ const Navbar = () => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl px-4 pt-2 pb-6 border-t border-white/20 max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm px-4 pt-2 pb-4 space-y-1 border-t border-gray-200/50 max-h-[80vh] overflow-y-auto">
           {menuItems.map((item) => {
             if (item.submenu) {
               return (
-                <div key={item.label} className="space-y-1 mt-2">
-                  <div className="px-3 py-2 text-sm font-semibold text-primary">{item.label}</div>
+                <div key={item.label} className="space-y-1">
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-800">{item.label}</div>
                   {item.submenu.map((sub) => (
                     <Link
                       key={sub.label}
                       href={sub.href}
-                      className="block pl-6 py-2 rounded-lg text-sm text-gray-600 hover:text-primary hover:bg-white/60 transition"
+                      className="block pl-6 py-2 rounded-lg text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50/70 transition"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {sub.label}
@@ -136,7 +135,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-white/60 transition"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50/70 transition"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}

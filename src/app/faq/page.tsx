@@ -8,14 +8,14 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <div className="min-h-screen py-16 px-4">
-      <div className="max-w-4xl mx-auto glass-card p-8 md:p-12 animate-fade-in">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Pertanyaan yang Sering Diajukan</h1>
-        <div className="prose prose-lg prose-blue max-w-none">
-          <p className="text-gray-700 leading-relaxed">Berikut adalah pertanyaan-pertanyaan umum seputar PPDB, fasilitas, kurikulum, dan kegiatan sekolah. Jika pertanyaan Anda tidak terjawab, silakan hubungi kami melalui halaman Kontak.</p>
+    <div className="min-h-screen pt-24 pb-16 px-4">
+      <div className="max-w-4xl mx-auto glass-card p-8 md:p-12 animate-fade-in-up">
+        <h1 className="text-3xl md:text-4xl font-bold text-primary mb-6">Pertanyaan yang Sering Diajukan</h1>
+        <div className="prose prose-lg prose-primary max-w-none text-gray-700 leading-relaxed">
+          <p>Berikut adalah pertanyaan-pertanyaan umum seputar PPDB, fasilitas, kurikulum, dan kegiatan sekolah. Jika pertanyaan Anda tidak terjawab, silakan hubungi kami melalui halaman Kontak.</p>
         </div>
         <div className="mt-8">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium transition">
+          <Link href="/" className="text-primary hover:text-accent font-medium transition">
             ← Kembali ke Beranda
           </Link>
         </div>
