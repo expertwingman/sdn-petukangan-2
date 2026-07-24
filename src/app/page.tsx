@@ -71,6 +71,7 @@ export default function Home() {
             <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/portal">Portal</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/green-school">Eco-School</Link>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
 
