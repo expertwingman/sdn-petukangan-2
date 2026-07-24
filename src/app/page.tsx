@@ -45,7 +45,7 @@ export default function Home() {
             <a href="/fasilitas" className="hover:text-[#0052CC] transition-colors">Fasilitas</a>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
-          <button className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20">
+          <a href="/ppdb" className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20 inline-block">
             Portal PPDB
           </button>
         </div>
