@@ -1,0 +1,3 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = { title: 'Berita & Kegiatan - SDN Petukangan Selatan 02', description: 'Berita terbaru seputar kegiatan SDN Petukangan Selatan 02.' }
+export default function BeritaPage() { return <main className="min-h-screen p-8 max-w-4xl mx-auto"><h1 className="text-3xl font-bold mb-4">Berita Terkini</h1><p>Temukan berita terbaru seputar kegiatan sekolah, pengumuman penting, dan acara-acara yang akan datang. Kami selalu aktif dalam berbagai kegiatan untuk mengembangkan potensi siswa.</p><p className="text-sm text-gray-500 mt-8">Halaman ini sedang dalam pengembangan. Segera hadir konten lengkap.</p></main> }

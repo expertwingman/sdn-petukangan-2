@@ -1,0 +1,3 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = { title: 'Agenda & Kalender - SDN Petukangan Selatan 02', description: 'Agenda kegiatan SDN Petukangan Selatan 02.' }
+export default function AgendaPage() { return <main className="min-h-screen p-8 max-w-4xl mx-auto"><h1 className="text-3xl font-bold mb-4">Agenda Sekolah</h1><p>Berikut adalah agenda kegiatan SDN Petukangan Selatan 02 untuk tahun ajaran 2026/2027. Kalender ini akan diperbarui secara berkala.</p><p className="text-sm text-gray-500 mt-8">Halaman ini sedang dalam pengembangan. Segera hadir konten lengkap.</p></main> }

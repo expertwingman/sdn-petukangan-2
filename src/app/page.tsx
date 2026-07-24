@@ -1,231 +1,27 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, GraduationCap, Users, Calendar, Sparkles, Globe } from "lucide-react";
-import { supabase } from "@/lib/supabase";
-import Link from "next/link";
-
-export default function Home() {
-  const [berita, setBerita] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [lang, setLang] = useState<"id" | "en">("id");
-
-  const t = {
-    id: {
-      badge: "Akreditasi A & Sekolah Ramah Anak",
-      titleMain: "Membentuk Karakter,",
-      titleSub: "Merancang Masa Depan.",
-      desc: "Sekolah dasar negeri terbaik di Pesanggrahan dengan fasilitas digital, lingkungan inklusif, dan tenaga pendidik profesional standar global.",
-      ctaPPDB: "Mulai Pendaftaran PPDB",
-      ctaProfile: "Pelajari Profil Sekolah",
-      newsLabel: "Informasi Terkini",
-      newsTitle: "Berita & Kegiatan Sekolah",
-      readMore: "Baca selengkapnya"
-    },
-    en: {
-      badge: "A-Accredited & Child-Friendly School",
-      titleMain: "Building Character,",
-      titleSub: "Designing the Future.",
-      desc: "The leading public elementary school in Pesanggrahan featuring digital facilities, an inclusive environment, and professional educators.",
-      ctaPPDB: "Start PPDB Registration",
-      ctaProfile: "Explore School Profile",
-      newsLabel: "Latest Updates",
-      newsTitle: "School News & Activities",
-      readMore: "Read more"
-    }
-  };
-
-  useEffect(() => {
-    async function fetchBerita() {
-      const { data, error } = await supabase
-        .from('berita')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(3);
-      
-      if (!error && data) {
-        setBerita(data);
-      }
-      setLoading(false);
-    }
-    fetchBerita();
-  }, []);
-
+import Link from 'next/link'
+import JsonLd from '@/components/ui/JsonLd'
+export default function HomePage() {
+  const orgSchema = { '@context': 'https://schema.org', '@type': 'EducationalOrganization', name: 'SDN Petukangan Selatan 02', alternateName: 'SD Negeri Petukangan Selatan 02', description: 'Sekolah dasar negeri terakreditasi A di Jakarta Selatan.', url: 'https://sdnpetukanganselatan02.vercel.app', address: { '@type': 'PostalAddress', streetAddress: 'Jl. Sakti VII RT.06/01', addressLocality: 'Pesanggrahan', addressRegion: 'Jakarta Selatan', postalCode: '12340', addressCountry: 'ID' }, telephone: '+62-21-1234567', email: 'info@sdnpetukanganselatan02.sch.id', foundingDate: '1980', numberOfStudents: 500, numberOfTeachers: 20, educationalLevel: 'Primary School', grades: '1-6' }
+  const schoolSchema = { '@context': 'https://schema.org', '@type': 'School', name: 'SDN Petukangan Selatan 02', url: 'https://sdnpetukanganselatan02.vercel.app', address: orgSchema.address, telephone: orgSchema.telephone, email: orgSchema.email }
   return (
-    <main className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden font-sans pb-24 selection:bg-blue-500 selection:text-white">
-      {/* Navbar dengan Menu Lengkap & Multi-Bahasa */}
-      <header className="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-slate-200/40 transition-all">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-tr from-[#0052CC] to-blue-400 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
-              02
-            </div>
-            <span className="font-semibold text-lg tracking-tight text-slate-800">
-              SDN Petukangan Selatan 02
-            </span>
-          </div>
-
-                    <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <Link className="hover:text-[#0052CC] transition-colors" href="/">Beranda</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/ppdb">PPDB</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
-            
-            {/* Dropdown Menu Fitur & Layanan */}
-            <div className="relative group">
-              <button className="flex items-center gap-1.5 hover:text-[#0052CC] transition-colors py-2">
-                <span>Fitur & Layanan</span>
-                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              
-              <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
-                <Link href="/konsultasi" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Konsultasi Wali Kelas</Link>
-                <Link href="/yearbook" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Digital Yearbook</Link>
-                <Link href="/storybook" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Pojok Cerita & Literasi</Link>
-                <Link href="/guru" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Direktori Guru & Staf</Link>
-                <Link href="/kalender" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Kalender & Hitung Mundur</Link>
-                <Link href="/galeri-seni" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Galeri Seni Siswa</Link>
-                <Link href="/ppdb-faq" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">FAQ PPDB</Link>
-                <Link href="/buletin" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Buletin & Mading Digital</Link>
-                <Link href="/paguyuban" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Paguyuban Orang Tua</Link>
-                <Link href="/parenting" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Parenting Tips</Link>
-                <Link href="/pohon-impian" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Pohon Impian Siswa</Link>
-              </div>
-            </div>
-
-            <Link className="hover:text-[#0052CC] transition-colors" href="/kontak">Kontak</Link>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setLang(lang === "id" ? "en" : "id")}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:border-[#0052CC] transition-all shadow-sm"
-            >
-              <Globe className="w-3.5 h-3.5 text-[#0052CC]" />
-              <span>{lang.toUpperCase()}</span>
-            </button>
-
-            <Link className="hidden sm:inline-block bg-[#0052CC] hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-105 active:scale-95" href="/ppdb">
-              Portal PPDB
-            </Link>
+    <>
+      <JsonLd data={orgSchema} /><JsonLd data={schoolSchema} />
+      <div className="bg-gradient-to-b from-blue-50 to-white min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Membentuk Karakter, Merancang Masa Depan</h1>
+          <p className="text-xl text-gray-700 mb-6">SDN Petukangan Selatan 02 – Sekolah Dasar Negeri Akreditasi A &amp; Sekolah Ramah Anak</p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Berlokasi di Pesanggrahan, Jakarta Selatan, kami menyediakan pendidikan berkualitas dengan fasilitas digital, lingkungan inklusif, dan tenaga pendidik profesional.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/ppdb" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow transition">Daftar Sekarang</Link>
+            <Link href="/tentang" className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-8 rounded-lg shadow border border-blue-600 transition">Pelajari Lebih Lanjut</Link>
           </div>
         </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="relative pt-44 pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-16 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[450px] bg-gradient-to-tr from-blue-500/15 via-emerald-400/15 to-transparent blur-[120px] -z-10 rounded-full pointer-events-none" 
-        />
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-md border border-blue-100 text-blue-700 text-sm font-medium mb-8 shadow-sm"
-        >
-          <Sparkles className="w-4 h-4 text-[#0052CC]" />
-          <span>{t[lang].badge}</span>
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 max-w-5xl leading-[1.05]"
-        >
-          {t[lang].titleMain} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052CC] via-blue-600 to-[#00A854]">
-            {t[lang].titleSub}
-          </span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="mt-8 text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed font-normal"
-        >
-          {t[lang].desc}
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 w-full justify-center"
-        >
-          <Link href="/ppdb" className="flex items-center justify-center gap-2 bg-[#0052CC] hover:bg-blue-700 text-white px-8 py-4 rounded-full text-base font-medium transition-all shadow-xl shadow-blue-500/25 hover:scale-105 active:scale-95 group">
-            {t[lang].ctaPPDB}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link href="/profil" className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-md hover:bg-white text-slate-700 border border-slate-200/80 px-8 py-4 rounded-full text-base font-medium transition-all shadow-sm hover:shadow-md hover:scale-105 active:scale-95">
-            {t[lang].ctaProfile}
-          </Link>
-        </motion.div>
+      </div>
+      <section className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-lg shadow-md text-center"><h3 className="text-xl font-bold text-blue-800">Akreditasi A</h3><p className="text-gray-600">Terakreditasi Unggul dari BAN-S/M</p></div>
+        <div className="bg-white p-6 rounded-lg shadow-md text-center"><h3 className="text-xl font-bold text-blue-800">Sekolah Ramah Anak</h3><p className="text-gray-600">Lingkungan aman dan nyaman untuk belajar</p></div>
+        <div className="bg-white p-6 rounded-lg shadow-md text-center"><h3 className="text-xl font-bold text-blue-800">Fasilitas Digital</h3><p className="text-gray-600">Laboratorium komputer, perpustakaan digital, dan akses internet</p></div>
       </section>
-
-      {/* Bagian Berita Terkini */}
-      <section id="berita" className="px-6 max-w-7xl mx-auto mt-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center justify-between mb-10"
-        >
-          <div>
-            <div className="text-xs font-bold tracking-widest text-[#0052CC] uppercase mb-1">{t[lang].newsLabel}</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">{t[lang].newsTitle}</h2>
-          </div>
-        </motion.div>
-
-        {loading ? (
-          <div className="flex justify-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0052CC]"></div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {berita.map((item, index) => (
-              <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="bg-white/80 backdrop-blur-xl rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100/80 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
-              >
-                <div className="h-52 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <img 
-                    src={item.gambar_url} 
-                    alt={item.judul} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                </div>
-                <div className="p-8 flex flex-col flex-1 justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-slate-400 text-xs font-medium mb-3">
-                      <Calendar className="w-3.5 h-3.5 text-[#0052CC]" />
-                      {new Date(item.created_at).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#0052CC] transition-colors line-clamp-2">{item.judul}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6">{item.konten}</p>
-                  </div>
-                  <div className="flex items-center gap-1 text-[#0052CC] font-semibold text-sm group-hover:gap-2 transition-all">
-                    <span>{t[lang].readMore}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
-      </section>
-    </main>
-  );
+    </>
+  )
 }

@@ -1,0 +1,3 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = { title: 'FAQ - SDN Petukangan Selatan 02', description: 'Pertanyaan yang sering diajukan tentang SDN Petukangan Selatan 02.' }
+export default function FAQPage() { return <main className="min-h-screen p-8 max-w-4xl mx-auto"><h1 className="text-3xl font-bold mb-4">Pertanyaan yang Sering Diajukan</h1><p>Berikut adalah pertanyaan-pertanyaan umum seputar PPDB, fasilitas, kurikulum, dan kegiatan sekolah. Jika pertanyaan Anda tidak terjawab, silakan hubungi kami melalui halaman Kontak.</p><p className="text-sm text-gray-500 mt-8">Halaman ini sedang dalam pengembangan. Segera hadir konten lengkap.</p></main> }

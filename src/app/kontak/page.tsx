@@ -1,0 +1,3 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = { title: 'Kontak - SDN Petukangan Selatan 02', description: 'Hubungi SDN Petukangan Selatan 02.' }
+export default function KontakPage() { return <main className="min-h-screen p-8 max-w-4xl mx-auto"><h1 className="text-3xl font-bold mb-4">Hubungi Kami</h1><p>📞 Telepon: (021) 1234567<br />📧 Email: info@sdnpetukanganselatan02.sch.id<br />🏫 Alamat: Jl. Sakti VII RT.06/01, Pesanggrahan, Jakarta Selatan 12340<br /><br />Jam operasional: Senin-Jumat, 07:00 - 16:00 WIB.</p><p className="text-sm text-gray-500 mt-8">Halaman ini sedang dalam pengembangan. Segera hadir konten lengkap.</p></main> }

@@ -13,7 +13,7 @@ export default function DashboardPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Passcode sederhana untuk prototipe (bisa diganti otentikasi JWT Supabase nantinya)
-    if (passcode === "admin02") {
+    if (passcode === process.env.DASHBOARD_PIN || "admin02") {
       setIsAuthenticated(true);
       setError(false);
     } else {

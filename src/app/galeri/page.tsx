@@ -1,0 +1,3 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = { title: 'Galeri - SDN Petukangan Selatan 02', description: 'Galeri foto dan video SDN Petukangan Selatan 02.' }
+export default function GaleriPage() { return <main className="min-h-screen p-8 max-w-4xl mx-auto"><h1 className="text-3xl font-bold mb-4">Galeri Foto & Video</h1><p>Lihat momen-momen berharga dari berbagai kegiatan sekolah, mulai dari proses belajar mengajar, ekstrakurikuler, hingga acara-acara spesial.</p><p className="text-sm text-gray-500 mt-8">Halaman ini sedang dalam pengembangan. Segera hadir konten lengkap.</p></main> }
