@@ -43,6 +43,7 @@ export default function Home() {
             <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/portal">Portal</Link>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
           <Link className="bg-[#0052CC] hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-105 active:scale-95 inline-block" href="/ppdb">
