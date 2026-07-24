@@ -66,27 +66,34 @@ export default function Home() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-            <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
+                    <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <Link className="hover:text-[#0052CC] transition-colors" href="/">Beranda</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/ppdb">PPDB</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/parenting">Parenting</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/pohon-impian">Pohon Impian</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/buletin">Buletin</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/paguyuban">Paguyuban</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/ppdb-faq">FAQ PPDB</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/galeri-seni">Galeri Seni</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/kalender">Kalender</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/guru">Guru</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/storybook">Pojok Cerita</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/yearbook">Yearbook</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/konsultasi">Konsultasi</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/lab">Lab Edukasi</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/alumni">Alumni</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/ekskul">Ekskul</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/portal">Portal</Link>
-            <Link className="hover:text-[#0052CC] transition-colors" href="/green-school">Eco-School</Link>
-            <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
+            
+            {/* Dropdown Menu Fitur & Layanan */}
+            <div className="relative group">
+              <button className="flex items-center gap-1.5 hover:text-[#0052CC] transition-colors py-2">
+                <span>Fitur & Layanan</span>
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              
+              <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <Link href="/konsultasi" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Konsultasi Wali Kelas</Link>
+                <Link href="/yearbook" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Digital Yearbook</Link>
+                <Link href="/storybook" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Pojok Cerita & Literasi</Link>
+                <Link href="/guru" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Direktori Guru & Staf</Link>
+                <Link href="/kalender" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Kalender & Hitung Mundur</Link>
+                <Link href="/galeri-seni" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Galeri Seni Siswa</Link>
+                <Link href="/ppdb-faq" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">FAQ PPDB</Link>
+                <Link href="/buletin" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Buletin & Mading Digital</Link>
+                <Link href="/paguyuban" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Paguyuban Orang Tua</Link>
+                <Link href="/parenting" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Parenting Tips</Link>
+                <Link href="/pohon-impian" className="block px-5 py-2.5 text-sm text-slate-600 hover:text-[#0052CC] hover:bg-blue-50/50 transition-colors">Pohon Impian Siswa</Link>
+              </div>
+            </div>
+
+            <Link className="hover:text-[#0052CC] transition-colors" href="/kontak">Kontak</Link>
           </nav>
 
           <div className="flex items-center gap-4">
