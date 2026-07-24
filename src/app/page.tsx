@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, GraduationCap, Users, Calendar } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 export default function Home() {
   const [berita, setBerita] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fungsi untuk menarik data dari Supabase
   useEffect(() => {
     async function fetchBerita() {
       const { data, error } = await supabase
@@ -40,14 +40,14 @@ export default function Home() {
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="/profil" className="hover:text-[#0052CC] transition-colors">Profil</a>
-            <a href="/akademik" className="hover:text-[#0052CC] transition-colors">Akademik</a>
-            <a href="/fasilitas" className="hover:text-[#0052CC] transition-colors">Fasilitas</a>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
-          <a href="/ppdb" className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20 inline-block">
+          <Link className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20 inline-block" href="/ppdb">
             Portal PPDB
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -95,7 +95,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Berita & Informasi</h2>
           <button className="hidden sm:flex items-center gap-2 text-[#0052CC] font-medium hover:underline">
-            Lihat Semua <ArrowRight className="w-4 h-4" />
+            Lihat Semua <ArrowRight className="w-4 h-4"/>
           </button>
         </div>
 
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-slate-400 text-sm mb-3">
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="w-4 h-4"/>
                     {new Date(item.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2 line-clamp-2">{item.judul}</h3>
