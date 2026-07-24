@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, GraduationCap, Users, Calendar } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, Users, Calendar, Sparkles } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
@@ -27,12 +27,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden font-sans pb-24">
-      {/* Navbar */}
-      <header className="fixed top-0 w-full bg-white/70 backdrop-blur-md z-50 border-b border-slate-200/50">
+    <main className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden font-sans pb-24 selection:bg-blue-500 selection:text-white">
+      {/* Navbar dengan Glassmorphism Premium */}
+      <header className="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-slate-200/40 transition-all">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#0052CC] rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/20">
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="w-10 h-10 bg-gradient-to-tr from-[#0052CC] to-blue-400 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
               02
             </div>
             <span className="font-semibold text-lg tracking-tight text-slate-800">
@@ -45,59 +45,83 @@ export default function Home() {
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
-          <Link className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20 inline-block" href="/ppdb">
+          <Link className="bg-[#0052CC] hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-105 active:scale-95 inline-block" href="/ppdb">
             Portal PPDB
           </Link>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-br from-blue-400/20 to-emerald-400/20 blur-[100px] -z-10 rounded-full" />
+      {/* Hero Section dengan Apple-Style Typography & Gradient Glow */}
+      <section className="relative pt-44 pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+        {/* Animated Background Glow */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute top-16 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[450px] bg-gradient-to-tr from-blue-500/15 via-emerald-400/15 to-transparent blur-[120px] -z-10 rounded-full pointer-events-none" 
+        />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-8 shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 backdrop-blur-md border border-blue-100 text-blue-700 text-sm font-medium mb-8 shadow-sm"
         >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-          </span>
-          Akreditasi A & Sekolah Ramah Anak
+          <Sparkles className="w-4 h-4 text-[#0052CC]" />
+          <span>Akreditasi A & Sekolah Ramah Anak</span>
         </motion.div>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 max-w-4xl leading-[1.1]"
+          transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 max-w-5xl leading-[1.05]"
         >
           Membentuk Karakter, <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052CC] to-[#00A854]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0052CC] via-blue-600 to-[#00A854]">
             Merancang Masa Depan.
           </span>
         </motion.h1>
 
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="mt-6 text-lg text-slate-500 max-w-2xl"
+          transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+          className="mt-8 text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed font-normal"
         >
           Sekolah dasar negeri terbaik di Pesanggrahan dengan fasilitas digital, lingkungan inklusif, dan tenaga pendidik profesional standar global.
         </motion.p>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+          className="mt-10 flex flex-col sm:flex-row gap-4 w-full justify-center"
+        >
+          <Link href="/ppdb" className="flex items-center justify-center gap-2 bg-[#0052CC] hover:bg-blue-700 text-white px-8 py-4 rounded-full text-base font-medium transition-all shadow-xl shadow-blue-500/25 hover:scale-105 active:scale-95 group">
+            Mulai Pendaftaran PPDB
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link href="/profil" className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-md hover:bg-white text-slate-700 border border-slate-200/80 px-8 py-4 rounded-full text-base font-medium transition-all shadow-sm hover:shadow-md hover:scale-105 active:scale-95">
+            Pelajari Profil Sekolah
+          </Link>
+        </motion.div>
       </section>
 
-      {/* Bagian Berita Terkini (Integrasi Supabase) */}
-      <section id="berita" className="px-6 max-w-7xl mx-auto mt-10">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Berita & Informasi</h2>
-          <button className="hidden sm:flex items-center gap-2 text-[#0052CC] font-medium hover:underline">
-            Lihat Semua <ArrowRight className="w-4 h-4"/>
-          </button>
-        </div>
+      {/* Bagian Berita Terkini dengan Glass Cards & Micro-Interactions */}
+      <section id="berita" className="px-6 max-w-7xl mx-auto mt-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex items-center justify-between mb-10"
+        >
+          <div>
+            <div className="text-xs font-bold tracking-widest text-[#0052CC] uppercase mb-1">Informasi Terkini</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Berita & Kegiatan Sekolah</h2>
+          </div>
+        </motion.div>
 
         {loading ? (
           <div className="flex justify-center py-20">
@@ -105,25 +129,39 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {berita.map((item) => (
-              <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-lg shadow-slate-200/40 border border-slate-100 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer">
-                <div className="h-48 overflow-hidden">
+            {berita.map((item, index) => (
+              <motion.div 
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="bg-white/80 backdrop-blur-xl rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100/80 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+              >
+                <div className="h-52 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <img 
                     src={item.gambar_url} 
                     alt={item.judul} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-slate-400 text-sm mb-3">
-                    <Calendar className="w-4 h-4"/>
-                    {new Date(item.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+                <div className="p-8 flex flex-col flex-1 justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-slate-400 text-xs font-medium mb-3">
+                      <Calendar className="w-3.5 h-3.5 text-[#0052CC]" />
+                      {new Date(item.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#0052CC] transition-colors line-clamp-2">{item.judul}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-6">{item.konten}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 line-clamp-2">{item.judul}</h3>
-                  <p className="text-slate-500 line-clamp-3 mb-4">{item.konten}</p>
-                  <span className="text-[#0052CC] font-medium text-sm">Baca selengkapnya &rarr;</span>
+                  <div className="flex items-center gap-1 text-[#0052CC] font-semibold text-sm group-hover:gap-2 transition-all">
+                    <span>Baca selengkapnya</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
