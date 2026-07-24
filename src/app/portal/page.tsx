@@ -1,4 +1,4 @@
-"id";
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,8 +19,6 @@ export default function PortalPage() {
     setLoading(true);
     setSearched(false);
 
-    // Simulasi pencarian data dari database Supabase (atau tabel siswa/ppdb)
-    // Untuk prototipe interaktif ini, kita cek jika NISN berupa angka valid
     setTimeout(() => {
       if (nisn === "123456" || nisn.length >= 5) {
         setResult({
@@ -41,7 +39,6 @@ export default function PortalPage() {
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-slate-900 font-sans pb-24 selection:bg-blue-500 selection:text-white">
-      {/* Navbar Simple */}
       <header className="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-slate-200/40">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-slate-500 hover:text-[#0052CC] transition-colors">
@@ -54,7 +51,6 @@ export default function PortalPage() {
         </div>
       </header>
 
-      {/* Hero / Checker Section */}
       <section className="pt-40 pb-16 px-6 max-w-3xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +83,6 @@ export default function PortalPage() {
           Masukkan Nomor Induk Siswa Nasional (NISN) atau Nomor Pendaftaran Anda untuk melihat hasil verifikasi secara real-time.
         </motion.p>
 
-        {/* Search Box Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,7 +115,6 @@ export default function PortalPage() {
         </motion.div>
       </section>
 
-      {/* Result Display Section */}
       <section className="px-6 max-w-3xl mx-auto">
         <AnimatePresence>
           {searched && (
