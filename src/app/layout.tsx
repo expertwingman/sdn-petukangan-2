@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
+import PageTransition from '@/components/ui/PageTransition'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,7 +46,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Langsung ke konten
         </a>
         <Navbar />
-        <main id="main-content" className="min-h-screen">{children}</main>
+        <main id="main-content">
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

@@ -41,8 +41,8 @@ export default function HomePage() {
       <JsonLd data={orgSchema} />
       <JsonLd data={schoolSchema} />
 
-      {/* Hero Section dengan animasi */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white min-h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Hero */}
+      <div className="relative gradient-hero text-white min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMCA0MCAyMCAyMCAwIDAgMSAwLTQweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')] bg-repeat"></div>
         <div className="max-w-4xl text-center px-4 relative z-10 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -57,28 +57,26 @@ export default function HomePage() {
             fasilitas digital, lingkungan inklusif, dan tenaga pendidik profesional.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/ppdb" className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <Link href="/ppdb" className="btn-primary">
               Daftar Sekarang
             </Link>
-            <Link href="/tentang" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-full border border-white/30 transition-all duration-300 hover:scale-105">
+            <Link href="/tentang" className="btn-secondary">
               Pelajari Lebih Lanjut
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Fitur Unggulan dengan animasi slide-up */}
+      {/* Keunggulan */}
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-          Keunggulan <span className="text-blue-600">Kami</span>
-        </h2>
+        <h2 className="section-title">Keunggulan <span>Kami</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { title: 'Akreditasi A', desc: 'Terakreditasi Unggul dari BAN-S/M', icon: '🏆', delay: 'delay-100' },
             { title: 'Sekolah Ramah Anak', desc: 'Lingkungan aman dan nyaman untuk belajar', icon: '🌱', delay: 'delay-200' },
             { title: 'Fasilitas Digital', desc: 'Lab komputer, perpustakaan digital, dan internet cepat', icon: '💻', delay: 'delay-300' },
           ].map((item, i) => (
-            <div key={i} className={`bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center animate-slide-up ${item.delay}`}>
+            <div key={i} className={`glass-card p-8 text-center card-hover animate-slide-up ${item.delay}`}>
               <div className="text-5xl mb-4">{item.icon}</div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">{item.title}</h3>
               <p className="text-gray-600">{item.desc}</p>
