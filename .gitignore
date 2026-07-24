@@ -42,3 +42,6 @@ next-env.d.ts
 .env.local
 
 # Kecualikan .env.example (boleh di-commit)
+
+# Kecualikan .env.example (boleh di-commit)
+!.env.example
