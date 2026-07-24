@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="/profil" className="hover:text-[#0052CC] transition-colors">Profil</a>
-            <a href="#" className="hover:text-[#0052CC] transition-colors">Akademik</a>
+            <a href="/akademik" className="hover:text-[#0052CC] transition-colors">Akademik</a>
             <a href="/fasilitas" className="hover:text-[#0052CC] transition-colors">Fasilitas</a>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
