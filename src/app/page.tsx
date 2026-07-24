@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden font-sans pb-24 selection:bg-blue-500 selection:text-white">
-      {/* Navbar dengan Tombol Multi-Bahasa */}
+      {/* Navbar dengan Menu Lengkap & Multi-Bahasa */}
       <header className="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-slate-200/40 transition-all">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 group cursor-pointer">
@@ -66,7 +66,7 @@ export default function Home() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
             <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
@@ -76,7 +76,6 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-4">
-            {/* Toggle Bahasa */}
             <button 
               onClick={() => setLang(lang === "id" ? "en" : "id")}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:border-[#0052CC] transition-all shadow-sm"
