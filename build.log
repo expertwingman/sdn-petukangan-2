@@ -1,0 +1,23 @@
+
+> sdn-petukangan-02@0.1.0 build
+> next build
+
+▲ Next.js 16.2.11 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 13.0s
+  Running TypeScript ...
+Failed to type check.
+
+./src/app/layout.tsx:28:3
+Type error: Object literal may only specify known properties, and 'link' does not exist in type 'Metadata'.
+
+  [90m26 |[0m   verification: { google: [32m'_iiZk25vu5K9Jj4fiynZSj4rX6XFVrQjwDeeaR_fA1g'[0m },
+  [90m27 |[0m   alternates: { canonical: [32m'https://sdnpetukanganselatan02.vercel.app'[0m },
+[31m[1m>[0m [90m28 |[0m   link: [
+  [90m   |[0m   [31m[1m^[0m
+  [90m29 |[0m     { rel: [32m'preconnect'[0m, href: [32m'https://fonts.googleapis.com'[0m },
+  [90m30 |[0m     { rel: [32m'preconnect'[0m, href: [32m'https://fonts.gstatic.com'[0m, crossOrigin: [32m'anonymous'[0m },
+  [90m31 |[0m   ],
+Next.js build worker exited with code: 1 and signal: null

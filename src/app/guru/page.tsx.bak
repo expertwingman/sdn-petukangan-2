@@ -1,0 +1,18 @@
+import { Metadata } from 'next'
+import Image from 'next/image'
+export const metadata: Metadata = { title: 'Guru & Staf Pengajar', description: 'Daftar guru dan staf SDN Petukangan Selatan 02 yang profesional dan berdedikasi.' }
+const teachers = [
+  { name: 'Drs. H. M. Sutisna, M.Pd.', position: 'Kepala Sekolah', nip: '197504122001121001', education: 'S2 Manajemen Pendidikan IKIP' },
+  { name: 'Hj. Siti Aminah, S.Pd.', position: 'Wali Kelas 5A', nip: '198205152005012003', education: 'S1 PGSD' },
+  { name: 'Dr. Ahmad Fauzi, M.Pd.', position: 'Guru Matematika', nip: '196808031998021001', education: 'S2 Pendidikan Matematika' },
+  { name: 'Dra. Rina Marlina, M.Si.', position: 'Guru IPA', nip: '197205212006042002', education: 'S2 Pendidikan IPA' },
+  { name: 'Drs. Budi Santoso, M.Pd.', position: 'Guru Bahasa Indonesia', nip: '196512011990031010', education: 'S2 Pendidikan Bahasa' },
+  { name: 'Nurhayati, S.Pd.', position: 'Guru Pendidikan Agama', nip: '198308122010012001', education: 'S1 Pendidikan Agama Islam' },
+  { name: 'Eko Prasetyo, S.Pd.', position: 'Guru Olahraga', nip: '199002152015041002', education: 'S1 Pendidikan Olahraga' },
+  { name: 'Dewi Lestari, A.Md.', position: 'Staf Administrasi', nip: '198505102010012002', education: 'D3 Administrasi Perkantoran' },
+  { name: 'Siti Rahayu, S.Pd.', position: 'Guru Seni Budaya', nip: '199203202016042003', education: 'S1 Pendidikan Seni' },
+  { name: 'Dr. Ir. Agus Salim, M.Kom.', position: 'Guru TIK', nip: '197808152003121001', education: 'S2 Teknik Informatika' },
+]
+export default function GuruPage() {
+  return <main className="max-w-6xl mx-auto p-6 py-12"><h1 className="text-3xl font-bold text-blue-900 mb-8">Guru & Staf Pengajar</h1><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">{teachers.map((g) => <div key={g.nip} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200"><div className="p-4 flex items-start space-x-4"><div className="flex-shrink-0"><Image src={`https://ui-avatars.com/api/?name=${encodeURIComponent(g.name)}&background=1A365D&color=fff&size=64`} alt={g.name} width={64} height={64} className="rounded-full" /></div><div><h3 className="text-lg font-semibold text-gray-800">{g.name}</h3><p className="text-sm text-blue-600 font-medium">{g.position}</p><p className="text-xs text-gray-500 mt-1">NIP: {g.nip}</p><p className="text-xs text-gray-500">{g.education}</p></div></div></div>)}</div></main>
+}
