@@ -70,6 +70,7 @@ export default function Home() {
             <Link className="hover:text-[#0052CC] transition-colors" href="/profil">Profil</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/akademik">Akademik</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/fasilitas">Fasilitas</Link>
+            <Link className="hover:text-[#0052CC] transition-colors" href="/galeri-seni">Galeri Seni</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/kalender">Kalender</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/guru">Guru</Link>
             <Link className="hover:text-[#0052CC] transition-colors" href="/storybook">Pojok Cerita</Link>
