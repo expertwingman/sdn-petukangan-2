@@ -42,7 +42,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="/profil" className="hover:text-[#0052CC] transition-colors">Profil</a>
             <a href="#" className="hover:text-[#0052CC] transition-colors">Akademik</a>
-            <a href="#" className="hover:text-[#0052CC] transition-colors">Fasilitas</a>
+            <a href="/fasilitas" className="hover:text-[#0052CC] transition-colors">Fasilitas</a>
             <a href="#berita" className="hover:text-[#0052CC] transition-colors">Berita</a>
           </nav>
           <button className="bg-[#0052CC] hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-blue-500/20">
