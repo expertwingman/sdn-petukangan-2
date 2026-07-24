@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title: 'SDN Petukangan Selatan 02', description: 'Sekolah dasar negeri terakreditasi A di Jakarta Selatan.', images: ['/og-image.jpg'] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
-  verification: { google: '_iiZk25vu5K9Jj4fiynZSj4rX6XFVrQjwDeeaR_fA1g' },
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION || '_iiZk25vu5K9Jj4fiynZSj4rX6XFVrQjwDeeaR_fA1g' },
   alternates: { canonical: 'https://sdnpetukanganselatan02.vercel.app' },
 }
 
